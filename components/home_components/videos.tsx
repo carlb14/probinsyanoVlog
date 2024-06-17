@@ -1,7 +1,7 @@
 import Image from "next/image";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import Loading from "./loading";
+import Loading from "../loading";
 import { motion } from "framer-motion";
 
 interface Topic {

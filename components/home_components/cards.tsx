@@ -14,7 +14,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ componentName, isActive, onClick }) => (
   <button
-    className={`p-2 rounded-2xl text-black md:text-sm text-xx outline-none ${isActive ? "bg-red-700 text-white" : ""
+    className={`p-1 rounded-md text-black md:text-sm text-xx outline-none ${isActive? "bg-red-700 text-white" : ""
       }`}
     onClick={onClick}
   >
@@ -43,8 +43,20 @@ interface ComponentContentProps {
 }
 
 const ComponentContent: React.FC<ComponentContentProps> = ({ activeComponent, loading }) => {
+  const componentHeights: { [key: string]: number } = {
+    "About Me": 200,
+    "Goal": 150,
+    "Videos": 400,
+  };
+
+  const componentHeight: number = componentHeights[activeComponent as keyof typeof componentHeights];
+
   if (loading) {
-    return <LoadingIndicator />;
+    return (
+      <div style={{ height: componentHeight }} className="flex justify-center items-center">
+        <LoadingIndicator height={componentHeight} />
+      </div>
+    );
   }
 
   switch (activeComponent) {
@@ -59,17 +71,21 @@ const ComponentContent: React.FC<ComponentContentProps> = ({ activeComponent, lo
   }
 };
 
-const LoadingIndicator = () => (
-  <div className="flex justify-center items-center h-56">
+interface LoadingIndicatorProps {
+  height: number;
+}
+
+const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ height }) => (
+  <div style={{ height }} className="flex justify-center items-center h-full">
     <div className="animate-spin rounded-full h-5 w-5 border-b-4 border-red-700"></div>
   </div>
 );
 
 export default function Cards() {
-  const [activeComponent, setActiveComponent] = useState("Videos");
+  const [activeComponent, setActiveComponent] = useState<"Videos" | "Goal" | "About Me">("Videos");
   const [loading, setLoading] = useState(false);
 
-  const handleButtonClick = (componentName: string) => {
+  const handleButtonClick = (componentName: "Videos" | "Goal" | "About Me") => {
     setLoading(true);
     setTimeout(() => {
       setActiveComponent(componentName);

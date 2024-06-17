@@ -1,8 +1,8 @@
 //import Image from "next/image";
 
-import Cards from "@/components/cards";
-import Collaboration from "@/components/collaboration";
-import Home_Greetings from "@/components/home_greetings";
+import Cards from "@/components/home_components/cards";
+import Collaboration from "@/components/home_components/collaboration";
+import Home_Greetings from "@/components/home_components/home_greetings";
 
 
 
