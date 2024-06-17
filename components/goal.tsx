@@ -8,11 +8,11 @@ export default function Goal() {
         <main className="grid place-items-center w-full h-auto p-2">
             <div className="flex flex-col md:flex-row justify-between w-full gap-5 p-1">
 
-                <section className="md:w-1/5 w-full flex justify-center  items-center">
+                <section className="md:w-icon_w w-full flex justify-center  items-center">
                     <GoalIcon className="mt-2"/>
                 </section>
 
-                <section className="md:w-10/12 w-full flex items-start p-4 flex-col ">
+                <section className="md:w-descriptions_w w-full flex items-start p-4 flex-col ">
                 <label className={` text-xs text-red-700 mb-3`}>What&apos;s My Goal?</label>
 
                     <p className="text-neutral-700 text-contentText">

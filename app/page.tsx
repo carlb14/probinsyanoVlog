@@ -15,7 +15,7 @@ export default function Home() {
       <Cards />
       
       <div className="grid place-items-center ">
-        <section className="flex justify-center w-full md:w-5/6">
+        <section className="flex justify-center w-full md:w-5/6 mt-4 p-2">
           <Collaboration />
 
         </section>

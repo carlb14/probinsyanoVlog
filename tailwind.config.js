@@ -18,13 +18,22 @@ const config = {
         'smallGreeting': '15px',
         'sm': '14.2px',
         'md': '28px',
-        'xs': '14px',
-        'contentText': '14.5px',
+        'xs': '13px',
+        'contentText': '14px',
         'xx': '12px',
         'header': '18px',
-        'title': '16px',
+        'title': '15px',
         'logo': '13px',
+
       },
+      width: {
+        'picture_w_vid_md': '10%',
+        'descriptions_w_vid_md': '90%',
+        'picture_w_vid_mb': '30%',
+        'descriptions_w_vid_mb': '70%',
+        'icon_w': '20%',
+        'descriptions_w': '80%',
+      }
     },
   },
   darkMode: "class", // Enable dark mode

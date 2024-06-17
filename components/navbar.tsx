@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from '@/assets/logo.jpg'
+import Logo from '@/assets/logo.webp'
 export default function HeaderNav(){
     return(
         <header className="p-1 shadow-sm  shadow-neutral-300">
