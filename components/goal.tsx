@@ -16,6 +16,7 @@ export default function Goal() {
                 <label className={` text-xs text-red-700 mb-3`}>What&apos;s My Goal?</label>
 
                     <p className="text-neutral-700 text-contentText">
+                    
                     My main goals are to entertain my fans and earn some extra income to support my family, especially since my wife is battling Stage 5 Chronic Kidney Disease. Her medical needs are expensive    , and my current job doesn&apos;t cover everything. So, if you&apos;re able, any sponsorship would be greatly appreciated to help us with her treatment and our daily expenses. Thank you for considering it.
                     </p>
                 </section>

@@ -24,6 +24,7 @@ const config = {
         'header': '18px',
         'title': '15px',
         'logo': '13px',
+        'sml': '10px',
 
       },
       width: {

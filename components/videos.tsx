@@ -73,7 +73,7 @@ const VideoList: React.FC = () => {
             topics.map((topic, index) => (
               <motion.section
                 key={index}
-                className="w-full p-1 mb-2 flex items-center justify-between shadow-md shadow-neutral-200 rounded-md  border-l border-red-700"
+                className="w-full p-1 mb-2 flex items-center justify-between shadow-md shadow-neutral-200 rounded-md  "
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 * index, duration: 0.3 }}
@@ -88,7 +88,7 @@ const VideoList: React.FC = () => {
                   />
                 </section>
                 <section className="md:w-descriptions_w_vid_md w-descriptions_w_vid_mb flex flex-col border-l border-neutral-200 pl-2 items-start">
-                  <label className="text-xx p-1 bg-red-700 my-2 w-fit rounded-xl text-white">Facebook</label>
+                  <label className="text-sml p-1 bg-red-700 my-1 w-fit rounded-md text-white">Facebook</label>
                   <section className="pb-1">
                     <label className="text-title text-red-700">{topic.title}</label>
                     <p className="text-contentText text-neutral-700">{topic.description}</p>

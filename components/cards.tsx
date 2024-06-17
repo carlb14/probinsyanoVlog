@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
 import Goal from "./goal";
 import AboutMe from "./about_me";
 import VideoList from "./videos";
@@ -13,9 +14,8 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ componentName, isActive, onClick }) => (
   <button
-    className={`p-2 rounded-2xl text-black md:text-sm text-xs outline-none ${
-      isActive? "bg-red-700 text-white" : ""
-    }`}
+    className={`p-2 rounded-2xl text-black md:text-sm text-xx outline-none ${isActive ? "bg-red-700 text-white" : ""
+      }`}
     onClick={onClick}
   >
     {componentName}
@@ -29,7 +29,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ activeComponent }) => (
   <div className="flex items-center w-full mt-3">
     <h1
-      className={`text-sm text-white bg-red-700 lg:w-1/6 md:w-2/6 w-2/6 text-center p-1 rounded-tl-xl rounded-b-sm`}
+      className={`md:text-sm text-xs text-white bg-red-700 lg:w-1/6 md:w-2/6 w-2/6 text-center p-1 rounded-xl `}
     >
       {activeComponent}
     </h1>
@@ -74,7 +74,7 @@ export default function Cards() {
     setTimeout(() => {
       setActiveComponent(componentName);
       setLoading(false);
-    }, 500);
+    }, 600);
   };
 
   return (
@@ -98,17 +98,24 @@ export default function Cards() {
       </div>
       <section className="md:w-5/6 w-full">
         <Header activeComponent={activeComponent} />
-        <motion.div
-          className="h-auto mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="w-full flex justify-center border-b-1 border-shadow-600">
-            <ComponentContent activeComponent={activeComponent} loading={loading} />
-          </div>
-        </motion.div>
+        <AnimatePresence initial={false} mode="wait">
+          <motion.section
+            key={activeComponent} // Ensure unique key for different components
+            className="h-auto mt-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="w-full flex justify-center border-b-1 border-shadow-600">
+              <ComponentContent activeComponent={activeComponent} loading={loading} />
+            </div>
+          </motion.section>
+        </AnimatePresence>
       </section>
+
+
+
     </main>
   );
 }
